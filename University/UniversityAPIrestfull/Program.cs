@@ -10,7 +10,7 @@ const string CONNECTIONNAME = "UniversityDB";
 var connectionString = builder.Configuration.GetConnectionString(CONNECTIONNAME);
 
 // 3. Add Context to services of builder.
-builder.Services.AddDbContext<UniversityDBContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<UniversityDBContext>(options => options.UseSqlServer(connectionString)); // Utilizamos UseSqlServer() porque viene del using Microsoft.EntityFrameworkCore, por lo que hay que prestar atención a las dependencias.
 
 
 // Add services to the container.

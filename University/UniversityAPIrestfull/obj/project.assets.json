@@ -10085,6 +10085,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Microsoft.EntityFrameworkCore.Design >= 6.0.8",
       "Microsoft.EntityFrameworkCore.SqlServer >= 6.0.8",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.8",
       "Microsoft.VisualStudio.Web.CodeGeneration.Core >= 6.0.8",
@@ -10098,11 +10099,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Diego\\Desktop\\Intensivo .NET\\University1\\UniversityAPIrestfull\\UniversityAPIrestfull.csproj",
+      "projectUniqueName": "C:\\Users\\Diego\\Desktop\\Intensivo .NET\\University\\UniversityAPIrestfull\\UniversityAPIrestfull.csproj",
       "projectName": "UniversityAPIrestfull",
-      "projectPath": "C:\\Users\\Diego\\Desktop\\Intensivo .NET\\University1\\UniversityAPIrestfull\\UniversityAPIrestfull.csproj",
+      "projectPath": "C:\\Users\\Diego\\Desktop\\Intensivo .NET\\University\\UniversityAPIrestfull\\UniversityAPIrestfull.csproj",
       "packagesPath": "C:\\Users\\Diego\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Diego\\Desktop\\Intensivo .NET\\University1\\UniversityAPIrestfull\\obj\\",
+      "outputPath": "C:\\Users\\Diego\\Desktop\\Intensivo .NET\\University\\UniversityAPIrestfull\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Diego\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -10131,6 +10132,12 @@
       "net6.0": {
         "targetAlias": "net6.0",
         "dependencies": {
+          "Microsoft.EntityFrameworkCore.Design": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[6.0.8, )"
+          },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
             "version": "[6.0.8, )"

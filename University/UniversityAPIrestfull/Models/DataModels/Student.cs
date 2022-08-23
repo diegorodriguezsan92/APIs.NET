@@ -14,6 +14,8 @@ namespace UniversityAPIrestfull.Models.DataModels
         public DateTime Dob { get; set; }   // Date Of Birth
 
 
+        // Relationships --> between Student table and Course table.
+
         [Required]
         public ICollection<Course> Courses { get; set; } = new List<Course>();
 

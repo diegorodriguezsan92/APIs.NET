@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.Tracing;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -269,21 +270,313 @@ namespace LinqSnippets
 
             var takeFirstTwoValues = myList.Take(2); // {1,2}
 
-            var takeLastTwoValues = myList.TakeLast(2); // {1,2,3,4,5,6,7}
+            var takeLastTwoValues = myList.TakeLast(2); // {9,10}
 
             var takeWhileSmallerThan4 = myList.TakeWhile(num => num < 4); // {1,2,3}
 
         }
         // TODO:
+        // PAGING with Skip & Take:
+        static public IEnumerable<T> GetPage<T>(IEnumerable<T> collection, int pageNumber, int resultsPerPage) // T is a generic value (bools, number, strings). This funcionality we can set a collection, page number and results per page.
+        {
+            int startIndex = (pageNumber - 1) * resultsPerPage; // takes page 1 and multiply by 10. Shows the first 10 elements.
+            return collection.Skip(startIndex).Take(resultsPerPage); // skips the first 10 elements and shows the second 10 elements, from 11th to 20th.
+
+        }
+
+
         // VARIABLES
+        static public void LinqVariables()
+        {
+            int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            var aboveAverage = from number in numbers // obtén todos los números de la lista de númreos siempre y cuando su cuadrado sea mayor que la media de la lista de números.
+                               let average = numbers.Average()    // almacenamos variables
+                               let nSquare = Math.Pow(number, 2)
+                               where nSquare > average
+                               select number; // obtenemos dichos números que cumplan las condiciones dadas
+
+            Console.WriteLine("Average: {0}", numbers.Average()); // volvemos a declarar numbers.Average aunque ya lo habíamos declarado antes porque estaba en un let y significa que está en una variable local dentro de una consulta.
+
+            foreach (int number in aboveAverage)
+            {
+                Console.WriteLine("Number: {0} Square: {1} ", number, Math.Pow(number, 2));
+            }
+        }
+
         // ZIP
-        // REPEAT
+
+        static public void ZipLinq()
+        {
+            int[] numbers = { 1, 2, 3, 4, 5 };
+            string[] stringNumbers = { "one", "two", "three", "four", "five" };
+
+            IEnumerable<string> zipNumbers = numbers.Zip(stringNumbers, (number, word) => number + "=" + word);   // { "1 = one", "2 = two" ...}
+
+        }
+
+        // REPEAT & RANGE
+
+        static public void repeatRangeLinq()
+        {
+            // Generate a collection of values from 1 to 1000 --> Range
+            IEnumerable<int> first1000 = Enumerable.Range(0, 1000);
+
+            // var aboveAverage = from number in first1000
+            // select number;
+
+            // Repeat a value N times
+            IEnumerable<string> fiveXs = Enumerable.Repeat("X", 5); // {"X", "X", "X", "X", "X"}
+
+        }
+
+        static public void studentsLinq()
+        {
+            var classRoom = new[]
+            {
+                new Student
+                {
+                    Id = 1,
+                    Name = "Martin",
+                    Grade = 90,
+                    Certified = false,
+                },
+                new Student
+                {
+                    Id = 2,
+                    Name = "Amparo",
+                    Grade = 60,
+                    Certified = true,
+                },
+                new Student
+                {
+                    Id = 3,
+                    Name = "Rosa",
+                    Grade = 45,
+                    Certified = true,
+                },
+                new Student
+                {
+                    Id = 4,
+                    Name = "Juan",
+                    Grade = 95,
+                    Certified = true,
+                },
+                new Student
+                {
+                    Id = 5,
+                    Name = "Pilar",
+                    Grade = 86,
+                    Certified = false,
+                }
+
+            };
+
+            var certifiedStudents = from student in classRoom
+                                     where student.Certified
+                                     select student;
+
+            var notCertifiedStudents = from student in classRoom
+                                       where student.Certified == false
+                                       select student;
+
+            var approvedStudentsName = from student in classRoom
+                                   where student.Grade >= 50 && student.Certified == true
+                                   select student.Name; // solo nos muestra el nombre del alumno, no su nota y certificación.
+
+        }
+
         // ALL
-        // AGGREGATE
+
+        static public void AllLinq()
+        {
+            var numbers = new List<int>() { 1, 2, 3, 4, 5 };
+
+            bool allAreSmallerThan10 = numbers.All(x => x < 10);    // consultamos si todos son menores que 10 // true
+
+            bool allAreBiggerOrEqualThan2 = numbers.All(x => x >= 2); // consultamos si todos son mayores que 2 // false
+
+
+            var emptyList = new List<int>();
+            bool allNumbersAreBiggerThan0 = numbers.All(x => x >= 0);   // true porque cuando una lista está vacía nos devuelve que todos los números de la lista son mayores que 0, porque no hay ningún número que rompa la regla, de hecho no hay ningún número en la lista.
+
+        }
+
+            // AGGREGATE
+        static public void aggregateQueries()
+        {
+            int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            // Sum all numbers
+            int sum = numbers.Aggregate((prevSum, current) => prevSum + current);
+            // 0, 1 -> 1 almacenado
+            // 1, 2 -> 3 almacenado
+            // 3, 4 -> 7 almacenado
+            // etc.
+
+
+            string[] words = { "Hello, ", "my ", "name ", "is ", "Dongle." }; // Hello, my name is Diego.
+            string greeting = words.Aggregate((prevGreeting, current) => prevGreeting + current);
+            // Hello,
+            // Hello, my
+            // Hello, my name
+            // etc
+
+        }
+
+
         // DISCTINCT
-        // GROUP BY
+        static public void distinctValues()
+        {
+            int[] numbers = { 1, 2, 3, 4, 5, 4, 3, 2, 1 };
+            IEnumerable<int> distinctValues = numbers.Distinct();
+        }
+
+        // GROUP BY (it shows first the list that DOESN'T meet the condition.
+        static public void groupByExamples()
+        {
+            List<int> numbers = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+            // Obtain only even numbers and generate two groups
+            var grouped = numbers.GroupBy(x => x % 2 == 0);
+
+            foreach (var group in grouped)
+            {
+                foreach (var value in group)
+                {
+                    Console.WriteLine(value);   // 1, 3, 5, 7, 9 ... 2, 4, 6, 8 (first the odds and then the even numbers). We will have two groups: The gruoup that doesnt fits the condition and the group that does fits the condition.
+                }
+            }
+
+
+            var classRoom = new[]
+            {
+                new Student
+                {
+                    Id = 1,
+                    Name = "Martin",
+                    Grade = 90,
+                    Certified = false,
+                },
+                new Student
+                {
+                    Id = 2,
+                    Name = "Amparo",
+                    Grade = 60,
+                    Certified = true,
+                },
+                new Student
+                {
+                    Id = 3,
+                    Name = "Rosa",
+                    Grade = 45,
+                    Certified = true,
+                },
+                new Student
+                {
+                    Id = 4,
+                    Name = "Juan",
+                    Grade = 95,
+                    Certified = true,
+                },
+            };
+
+            var certifiedQuery = classRoom.GroupBy(student => student.Certified); // this query asks for the certified students.
+            var certifiedQueryAndMoreThan70 = classRoom.GroupBy(student => student.Certified && student.Grade >= 70); // this query asks for the certified students who has 70 or more grades.
+
+            // We obtain two groups:
+            // 1. Not certified students.
+            // 2. Certified students.
+
+            foreach (var group in certifiedQuery)
+            {
+                Console.WriteLine("___________ {0} ___________" + group.Key);
+                foreach (var student in group)
+                {
+                    Console.WriteLine(student.Name);
+                }
+            }
+
+
+        }
+
+
+        static public void relationsLinq()
+        {
+            List<Post> posts = new List<Post>()
+            {
+                new Post()
+                {
+                    Id = 1,
+                    Title = "My first post",
+                    Content = "My first content",
+                    Created = DateTime.Now,
+                    Comment = new List<Comment>()
+                    {
+                        new Comment()
+                        {
+                            Id = 1,
+                            Created = DateTime.Now,
+                            Title ="My first comment",
+                            Content = "My first content"
+                        },
+                        new Comment()
+                        {
+                            Id = 2,
+                            Created = DateTime.Now,
+                            Title ="My second comment",
+                            Content = "My second content"
+                        }
+                    }
+                },
+
+                new Post()
+                {
+                    Id = 2,
+                    Title = "My second post",
+                    Content = "My second content",
+                    Created = DateTime.Now,
+                    Comment = new List<Comment>()
+                    {
+                        new Comment()
+                        {
+                            Id = 3,
+                            Created = DateTime.Now,
+                            Title ="My other comment",
+                            Content = "My new content"
+                        },
+                        new Comment()
+                        {
+                            Id = 4,
+                            Created = DateTime.Now,
+                            Title ="My other comment",
+                            Content = "My new content"
+                        }
+                    }
+
+
+                }
+            };
+
+
+            var comentsContent = posts.SelectMany(
+                post => post.Comment, 
+                (post, comment) => new { PostId = post.Id, CommentContent = comment.Content });     // deploys an Id and its comment: Id 1 --> Comment 1, etc.
 
 
 
-    }
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+        }
 }

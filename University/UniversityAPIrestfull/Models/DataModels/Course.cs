@@ -36,6 +36,9 @@ namespace UniversityAPIrestfull.Models.DataModels
 
 
 
+
+        // Relationships
+
         [Required]
         public ICollection<Category> Categories { get; set; } = new List<Category>();
 

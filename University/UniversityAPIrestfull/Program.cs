@@ -13,6 +13,11 @@ var connectionString = builder.Configuration.GetConnectionString(CONNECTIONNAME)
 // 3. Add Context to services of builder.
 builder.Services.AddDbContext<UniversityDBContext>(options => options.UseSqlServer(connectionString)); // Utilizamos UseSqlServer() porque viene del using Microsoft.EntityFrameworkCore, por lo que hay que prestar atención a las dependencias.
 
+// 7. Add Sservice of JWT Autorization
+// TODO
+// builder.Services.AddJwtToken.Services(builder.Configuration);
+
+
 
 // Add services to the container.
 builder.Services.AddControllers();
@@ -20,8 +25,7 @@ builder.Services.AddControllers();
 // 4. Add custom services from StudentService.cs (folder Services)
 builder.Services.AddScoped<IStudentsService, StudentService>();     // After adding this builder, we need to add the controller as an scafolding Entity Framework file in Controllers folder.
 
-// TODO: Add the resto of services
-
+// TODO: Add the rest of the services
 
 
 
@@ -29,6 +33,8 @@ builder.Services.AddScoped<IStudentsService, StudentService>();     // After add
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
+// 8. TODO: Config Suagger to take care of Autorization of JWT
 builder.Services.AddSwaggerGen();
 
 

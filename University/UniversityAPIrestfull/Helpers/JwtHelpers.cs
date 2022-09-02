@@ -12,8 +12,8 @@ namespace UniversityAPIrestfull.Helpers
             List<Claim> claims = new List<Claim>
             {
                 new Claim("Id", userAccounts.Id.ToString()),
-                new Claim(ClaimTypes.Name, userAccounts.UserName),
-                new Claim(ClaimTypes.Email, userAccounts.EmailId),
+                new Claim(ClaimTypes.Name, value: userAccounts.UserName),
+                new Claim(ClaimTypes.Email, value: userAccounts.EmailId),
                 new Claim(ClaimTypes.NameIdentifier, Id.ToString()),
                 new Claim(ClaimTypes.Expiration, DateTime.UtcNow.AddDays(1).ToString("MM ddd dd yyy HH:mm:ss tt"))  // the expiration is 1 day before today.
 
@@ -50,7 +50,7 @@ namespace UniversityAPIrestfull.Helpers
                 }
 
                 //Obtain SECRET KEY
-                var key = System.Text.Encoding.ASCII.GetBytes(jwtSettings.IsuserSigninKey);
+                var key = System.Text.Encoding.ASCII.GetBytes(jwtSettings.IssuerSigningKey);
 
                 Guid Id;
 
@@ -63,14 +63,15 @@ namespace UniversityAPIrestfull.Helpers
                 // Generate our JWT
                 var jwToken = new JwtSecurityToken(
 
-                    issuer: jwtSettings.ValidIsuser,
+                    issuer: jwtSettings.ValidIssuer,
                     audience: jwtSettings.ValidAudience,
                     claims: GetClaims(model, out Id),
                     notBefore: new DateTimeOffset(DateTime.Now).DateTime,
                     expires: new DateTimeOffset(expireTime).DateTime,   // expiration time
                     signingCredentials: new SigningCredentials(
                         new SymmetricSecurityKey(key),
-                        SecurityAlgorithms.HmacSha256));
+                        SecurityAlgorithms.HmacSha256)
+                 );
 
                 userToken.Token = new JwtSecurityTokenHandler().WriteToken(jwToken);
                 userToken.UserName = model.UserName;

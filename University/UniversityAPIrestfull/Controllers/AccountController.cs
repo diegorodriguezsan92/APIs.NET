@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using UniversityAPIrestfull.DataAccess;
 using UniversityAPIrestfull.Helpers;
 using UniversityAPIrestfull.Models.DataModels;
 
@@ -11,12 +12,17 @@ namespace UniversityAPIrestfull.Controllers
     [ApiController]
     public class AccountController : ControllerBase
     {
+        private readonly UniversityDBContext _context;
         private readonly JwtSettings _jwtSettings;
 
-        public AccountController(JwtSettings jwtSettings)
+        public AccountController(UniversityDBContext context, JwtSettings jwtSettings)
         {
+            _context = context;
             _jwtSettings = jwtSettings;
         }
+
+        // Example Users
+        // TODO: change for real users in DB
 
         private IEnumerable<User> Logins = new List<User>()
         {
@@ -32,7 +38,7 @@ namespace UniversityAPIrestfull.Controllers
                 Id = 2,
                 Email = "recepcion@imaginagroup.com",
                 Name = "User1",
-                Password = "recepcion"
+                Password = "User1"
             }
         };
 
@@ -49,7 +55,7 @@ namespace UniversityAPIrestfull.Controllers
 
                 if(Valid)
                 {
-                    var user = Logins.FirstOrDefault(user => user.Name.Equals(userLogin.UserName, StringComparison.OrdinalIgnoreCase);
+                    var user = Logins.FirstOrDefault(user => user.Name.Equals(userLogin.UserName, StringComparison.OrdinalIgnoreCase));
 
                     Token = JwtHelpers.GenTokenKey(new UserTokens()
                         {
@@ -63,8 +69,7 @@ namespace UniversityAPIrestfull.Controllers
                 {
                     return BadRequest("Wrong Password");
                 }
-                return Ok(Token);
-                            
+                return Ok(Token);                            
             }catch (Exception ex)
             {
                 throw new Exception("GetToken Error", ex);
@@ -77,8 +82,5 @@ namespace UniversityAPIrestfull.Controllers
             {
             return Ok(Logins);
             }
-
-
-
     }
 }

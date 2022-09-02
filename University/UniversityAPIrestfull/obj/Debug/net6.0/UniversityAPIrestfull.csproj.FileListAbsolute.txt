@@ -520,3 +520,5 @@ C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\obj\Debug
 C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\obj\Debug\net6.0\UniversityAPIrestfull.pdb
 C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\obj\Debug\net6.0\UniversityAPIrestfull.genruntimeconfig.cache
 C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\obj\Debug\net6.0\ref\UniversityAPIrestfull.dll
+C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll

@@ -2,11 +2,11 @@
 {
     public class JwtSettings
     {
-        public bool ValidateIsuserSigninKey { get; set; }
-        public string IsuserSigninKey { set; get; } = String.Empty;
+        public bool ValidateIssuerSigningKey { get; set; }
+        public string IssuerSigningKey { set; get; } = String.Empty;
 
-        public bool ValidateIsuser { get; set; } = true;
-        public string? ValidIsuser { get; set; }
+        public bool ValidateIssuer { get; set; } = true;
+        public string? ValidIssuer { get; set; }
 
         public bool ValidateAudience { get; set; } = true;
         public string? ValidAudience { get; set; }

@@ -45,7 +45,7 @@ builder.Services.AddEndpointsApiExplorer();
 // 8. Config Swagger to take care of Autorization of JWT
 builder.Services.AddSwaggerGen(options =>
 {
-    // Security defining
+    // Security defining for authorization
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Name =  "Authorization",

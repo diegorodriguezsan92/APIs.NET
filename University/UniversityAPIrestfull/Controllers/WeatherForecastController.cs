@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace UniversityAPIrestfull.Controllers
@@ -21,6 +23,7 @@ namespace UniversityAPIrestfull.Controllers
 
         // Method: GET => Get to localhost:7167/WeatherForecast
         [HttpGet(Name = "GetWeatherForecast")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Administrator, User")]
         public IEnumerable<WeatherForecast> Get()
         {
 

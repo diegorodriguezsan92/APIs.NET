@@ -39,6 +39,7 @@ namespace UniversityAPIrestfull
                         ValidateLifetime = bindJwtSettings.ValidateLifetime,
                         ClockSkew = TimeSpan.FromDays(1)
                     };
+
                 });
         }
     }

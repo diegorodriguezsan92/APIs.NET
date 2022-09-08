@@ -559,9 +559,9 @@ namespace LinqSnippets
             };
 
 
-            var comentsContent = posts.SelectMany(
-                post => post.Comment, 
-                (post, comment) => new { PostId = post.Id, CommentContent = comment.Content });     // deploys an Id and its comment: Id 1 --> Comment 1, etc.
+        var comentsContent = posts.SelectMany(
+            post => post.Comment, 
+            (post, comment) => new { PostId = post.Id, CommentContent = comment.Content });     // deploys an Id and its comment: Id 1 --> Comment 1, etc.
 
 
 
@@ -578,5 +578,5 @@ namespace LinqSnippets
 
 
 
-        }
+    }
 }

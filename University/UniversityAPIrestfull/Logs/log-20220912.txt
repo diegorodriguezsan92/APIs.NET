@@ -1,0 +1,5 @@
+2022-09-12 13:50:41.723 +02:00 [INF] Now listening on: https://localhost:7167
+2022-09-12 13:50:42.392 +02:00 [INF] Now listening on: http://localhost:5167
+2022-09-12 13:50:42.421 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-12 13:50:42.431 +02:00 [INF] Hosting environment: Development
+2022-09-12 13:50:42.445 +02:00 [INF] Content root path: C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\

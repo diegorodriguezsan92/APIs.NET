@@ -4,8 +4,19 @@ using Microsoft.OpenApi.Models;
 using UniversityAPIrestfull;
 using UniversityAPIrestfull.DataAccess;
 using UniversityAPIrestfull.Services;
+// 10. Use Serilog to log events
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args); // sirve para construir las configuraciones que va a usar nuestra aplicación
+
+// 11. Config Serilog
+builder.Host.UseSerilog((hostBuilderCtx, loggerConf) =>
+{
+    loggerConf
+    .WriteTo.Console().WriteTo.Console()
+    .WriteTo.Debug()
+    .ReadFrom.Configuration(hostBuilderCtx.Configuration);
+});
 
 
 // 2. Coneccion with SQL Server Express
@@ -99,6 +110,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger(); // sirve para documentar la aplicación
     app.UseSwaggerUI();
 }
+
+// 12. Tell app to use Serilog
+app.UseSerilogRequestLogging();
+
+
 
 app.UseHttpsRedirection();
 

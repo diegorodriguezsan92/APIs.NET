@@ -522,3 +522,17 @@ C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\obj\Debug
 C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\obj\Debug\net6.0\ref\UniversityAPIrestfull.dll
 C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\bin\Debug\net6.0\Microsoft.Azure.Services.AppAuthentication.dll
+C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\bin\Debug\net6.0\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\bin\Debug\net6.0\Serilog.dll
+C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\bin\Debug\net6.0\Serilog.AspNetCore.dll
+C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
+C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
+C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
+C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\bin\Debug\net6.0\Serilog.Sinks.Console.dll
+C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
+C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\bin\Debug\net6.0\Serilog.Sinks.File.dll
+C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\bin\Debug\net6.0\Serilog.Sinks.MSSqlServer.dll
+C:\Users\Diego\Desktop\Intensivo .NET\University\UniversityAPIrestfull\bin\Debug\net6.0\Serilog.Sinks.PeriodicBatching.dll

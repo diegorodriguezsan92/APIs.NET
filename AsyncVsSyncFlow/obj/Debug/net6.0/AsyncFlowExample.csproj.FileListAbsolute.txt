@@ -1,0 +1,15 @@
+C:\Users\Diego\Desktop\Intensivo .NET\AsyncFlowExample\bin\Debug\net6.0\AsyncFlowExample.exe
+C:\Users\Diego\Desktop\Intensivo .NET\AsyncFlowExample\bin\Debug\net6.0\AsyncFlowExample.deps.json
+C:\Users\Diego\Desktop\Intensivo .NET\AsyncFlowExample\bin\Debug\net6.0\AsyncFlowExample.runtimeconfig.json
+C:\Users\Diego\Desktop\Intensivo .NET\AsyncFlowExample\bin\Debug\net6.0\AsyncFlowExample.dll
+C:\Users\Diego\Desktop\Intensivo .NET\AsyncFlowExample\bin\Debug\net6.0\AsyncFlowExample.pdb
+C:\Users\Diego\Desktop\Intensivo .NET\AsyncFlowExample\obj\Debug\net6.0\AsyncFlowExample.csproj.AssemblyReference.cache
+C:\Users\Diego\Desktop\Intensivo .NET\AsyncFlowExample\obj\Debug\net6.0\AsyncFlowExample.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Diego\Desktop\Intensivo .NET\AsyncFlowExample\obj\Debug\net6.0\AsyncFlowExample.AssemblyInfoInputs.cache
+C:\Users\Diego\Desktop\Intensivo .NET\AsyncFlowExample\obj\Debug\net6.0\AsyncFlowExample.AssemblyInfo.cs
+C:\Users\Diego\Desktop\Intensivo .NET\AsyncFlowExample\obj\Debug\net6.0\AsyncFlowExample.csproj.CoreCompileInputs.cache
+C:\Users\Diego\Desktop\Intensivo .NET\AsyncFlowExample\obj\Debug\net6.0\AsyncFlowExample.dll
+C:\Users\Diego\Desktop\Intensivo .NET\AsyncFlowExample\obj\Debug\net6.0\refint\AsyncFlowExample.dll
+C:\Users\Diego\Desktop\Intensivo .NET\AsyncFlowExample\obj\Debug\net6.0\AsyncFlowExample.pdb
+C:\Users\Diego\Desktop\Intensivo .NET\AsyncFlowExample\obj\Debug\net6.0\AsyncFlowExample.genruntimeconfig.cache
+C:\Users\Diego\Desktop\Intensivo .NET\AsyncFlowExample\obj\Debug\net6.0\ref\AsyncFlowExample.dll
